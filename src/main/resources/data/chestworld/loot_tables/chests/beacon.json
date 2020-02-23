@@ -1,0 +1,63 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:beacon"
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "weight": 40.0,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 164.0
+            }
+          ],
+          "name": "minecraft:iron_block"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 20.0,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 164.0
+            }
+          ],
+          "name": "minecraft:gold_block"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 5.0,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 164.0
+            }
+          ],
+          "name": "minecraft:diamond_block"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 10.0,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 164.0
+            }
+          ],
+          "name": "minecraft:emerald_block"
+        }
+      ]
+    }
+  ]
+}

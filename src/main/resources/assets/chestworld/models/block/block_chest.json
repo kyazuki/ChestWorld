@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "particle": "chestworld:block/front",
+    "down": "chestworld:block/top_bottom",
+    "up": "chestworld:block/top_bottom",
+    "north": "chestworld:block/front",
+    "east": "chestworld:block/side",
+    "south": "chestworld:block/side",
+    "west": "chestworld:block/side"
+  }
+}

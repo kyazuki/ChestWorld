@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "chestworld:block/block_chest" }
+  }
+}
