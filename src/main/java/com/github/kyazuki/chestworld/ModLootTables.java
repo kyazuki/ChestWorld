@@ -65,6 +65,9 @@ public class ModLootTables {
   public static final Pair<String, ResourceLocation> DIRT;
   public static final Pair<String, ResourceLocation> OCEAN_MONUMENT;
   public static final Pair<String, ResourceLocation> WITHER;
+  public static final Pair<String, ResourceLocation> END_PORTAL;
+  public static final Pair<String, ResourceLocation> MONSTER_DROP;
+  public static final Pair<String, ResourceLocation> ANIMAL_DROP;
   public static final List<Pair<String, ResourceLocation>> COMMON_LOOT;
   public static final List<Pair<String, ResourceLocation>> UNCOMMON_LOOT;
   public static final List<Pair<String, ResourceLocation>> RARE_LOOT;
@@ -127,10 +130,13 @@ public class ModLootTables {
     THE_END = Pair.of("chestname.chestworld.the_end", new ResourceLocation(ChestWorld.MODID, "chests/the_end"));
     FLOWER = Pair.of("chestname.chestworld.flower", new ResourceLocation(ChestWorld.MODID, "chests/flower"));
     ORE = Pair.of("chestname.chestworld.ore", new ResourceLocation(ChestWorld.MODID, "chests/ore"));
-    WOOL = Pair.of("chestname.chestworld.ore", new ResourceLocation(ChestWorld.MODID, "chests/wool"));
+    WOOL = Pair.of("chestname.chestworld.wool", new ResourceLocation(ChestWorld.MODID, "chests/wool"));
     DIRT = Pair.of("chestname.chestworld.dirt", new ResourceLocation(ChestWorld.MODID, "chests/dirt"));
     OCEAN_MONUMENT = Pair.of("chestname.chestworld.ocean_monument", new ResourceLocation(ChestWorld.MODID, "chests/ocean_monument"));
     WITHER = Pair.of("chestname.chestworld.wither", new ResourceLocation(ChestWorld.MODID, "chests/wither"));
+    END_PORTAL = Pair.of("chestname.chestworld.end_portal", new ResourceLocation(ChestWorld.MODID, "chests/end_portal"));
+    MONSTER_DROP = Pair.of("chestname.chestworld.monster_drop", new ResourceLocation(ChestWorld.MODID, "chests/monster_drop"));
+    ANIMAL_DROP = Pair.of("chestname.chestworld.animal_drop", new ResourceLocation(ChestWorld.MODID, "chests/animal_drop"));
 
     COMMON_LOOT = ImmutableList.of(
             CHESTS_SPAWN_BONUS_CHEST,
@@ -168,7 +174,8 @@ public class ModLootTables {
             CHESTS_VILLAGE_VILLAGE_SAVANNA_HOUSE,
             CHESTS_PILLAGER_OUTPOST,
             CHEST,
-            OCEAN_MONUMENT
+            OCEAN_MONUMENT,
+            ANIMAL_DROP
     );
     RARE_LOOT = ImmutableList.of(
             CHESTS_SIMPLE_DUNGEON,
@@ -183,7 +190,8 @@ public class ModLootTables {
             CHESTS_SHIPWRECK_SUPPLY,
             CHESTS_SHIPWRECK_TREASURE,
             INGOT,
-            ORE
+            ORE,
+            MONSTER_DROP
     );
     VERY_RARE_LOOT = ImmutableList.of(
             EMPTY,
@@ -199,7 +207,8 @@ public class ModLootTables {
     LEGENDARY_LOOT = ImmutableList.of(
             DIAMOND_EQUIPMENTS,
             BEACON,
-            WITHER
+            WITHER,
+            END_PORTAL
     );
   }
 }
