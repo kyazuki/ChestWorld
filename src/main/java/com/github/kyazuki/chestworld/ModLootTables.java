@@ -97,7 +97,7 @@ public class ModLootTables {
     CHESTS_VILLAGE_VILLAGE_SNOWY_HOUSE = Pair.of("chestname.chestworld.village.snowy", LootTables.CHESTS_VILLAGE_VILLAGE_SNOWY_HOUSE);
     CHESTS_VILLAGE_VILLAGE_SAVANNA_HOUSE = Pair.of("chestname.chestworld.village.savanna", LootTables.CHESTS_VILLAGE_VILLAGE_SAVANNA_HOUSE);
     CHESTS_ABANDONED_MINESHAFT = Pair.of("chestname.chestworld.mineshaft", LootTables.CHESTS_ABANDONED_MINESHAFT);
-    CHESTS_NETHER_BRIDGE = Pair.of("chestname.chestworld.nether_fortress", LootTables.CHESTS_NETHER_BRIDGE);
+    //CHESTS_NETHER_BRIDGE = Pair.of("chestname.chestworld.nether_fortress", LootTables.CHESTS_NETHER_BRIDGE);
     CHESTS_STRONGHOLD_LIBRARY = Pair.of("chestname.chestworld.stronghold.library", LootTables.CHESTS_STRONGHOLD_LIBRARY);
     CHESTS_STRONGHOLD_CROSSING = Pair.of("chestname.chestworld.stronghold.crossing", LootTables.CHESTS_STRONGHOLD_CROSSING);
     CHESTS_STRONGHOLD_CORRIDOR = Pair.of("chestname.chestworld.stronghold.corridor", LootTables.CHESTS_STRONGHOLD_CORRIDOR);
@@ -112,6 +112,8 @@ public class ModLootTables {
     CHESTS_SHIPWRECK_SUPPLY = Pair.of("chestname.chestworld.shipwreck.supply", LootTables.CHESTS_SHIPWRECK_SUPPLY);
     CHESTS_SHIPWRECK_TREASURE = Pair.of("chestname.chestworld.shipwreck.treasure", LootTables.CHESTS_SHIPWRECK_TREASURE);
     CHESTS_PILLAGER_OUTPOST = Pair.of("chestname.chestworld.outpost", LootTables.CHESTS_PILLAGER_OUTPOST);
+
+    CHESTS_NETHER_BRIDGE = Pair.of("chestname.chestworld.nether_fortress", new ResourceLocation(ChestWorld.MODID, "chests/nether_bridge"));
 
     INGOT = Pair.of("chestname.chestworld.ingot", new ResourceLocation(ChestWorld.MODID, "chests/ingot"));
     DIAMOND_EQUIPMENTS = Pair.of("chestname.chestworld.diamond_equipments", new ResourceLocation(ChestWorld.MODID, "chests/diamond_equipments"));

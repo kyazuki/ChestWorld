@@ -1,10 +1,12 @@
 {
   "homepage": "https://github.com/kyazuki/ChestWorld/releases",
   "1.15.2": {
+    "0.1.2": "Fix AnimalDrop's LootTable.",
+    "0.1.1": "Add new LootTables.(MonsterDrop, AnimalDrop, EndPortalFrame)",
     "0.1.0": "Published."
   },
   "promos": {
-    "1.15.2-latest": "0.1.0",
-    "1.15.2-recommended": "0.1.0"
+    "1.15.2-latest": "0.1.2",
+    "1.15.2-recommended": "0.1.2"
   }
 }

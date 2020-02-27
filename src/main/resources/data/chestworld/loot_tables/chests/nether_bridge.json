@@ -3,14 +3,14 @@
   "pools": [
     {
       "rolls": {
-        "min": 5.0,
-        "max": 10.0,
+        "min": 2.0,
+        "max": 4.0,
         "type": "minecraft:uniform"
       },
       "entries": [
         {
           "type": "minecraft:item",
-          "weight": 20.0,
+          "weight": 5,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -21,26 +21,26 @@
               }
             }
           ],
-          "name": "minecraft:leather"
+          "name": "minecraft:diamond"
         },
         {
           "type": "minecraft:item",
-          "weight": 20.0,
+          "weight": 5,
           "functions": [
             {
               "function": "minecraft:set_count",
               "count": {
                 "min": 1.0,
-                "max": 3.0,
+                "max": 5.0,
                 "type": "minecraft:uniform"
               }
             }
           ],
-          "name": "minecraft:beef"
+          "name": "minecraft:iron_ingot"
         },
         {
           "type": "minecraft:item",
-          "weight": 20.0,
+          "weight": 15,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -51,101 +51,76 @@
               }
             }
           ],
-          "name": "minecraft:porkchop"
+          "name": "minecraft:gold_ingot"
         },
         {
           "type": "minecraft:item",
-          "weight": 20.0,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1.0,
-                "max": 3.0,
-                "type": "minecraft:uniform"
-              }
-            }
-          ],
-          "name": "minecraft:egg"
+          "weight": 5,
+          "name": "minecraft:golden_sword"
         },
         {
           "type": "minecraft:item",
-          "weight": 20.0,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1.0,
-                "max": 3.0,
-                "type": "minecraft:uniform"
-              }
-            }
-          ],
-          "name": "minecraft:chicken"
+          "weight": 5,
+          "name": "minecraft:golden_chestplate"
         },
         {
           "type": "minecraft:item",
-          "weight": 20.0,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1.0,
-                "max": 3.0,
-                "type": "minecraft:uniform"
-              }
-            }
-          ],
-          "name": "minecraft:white_wool"
+          "weight": 5,
+          "name": "minecraft:flint_and_steel"
         },
         {
           "type": "minecraft:item",
-          "weight": 20.0,
+          "weight": 5,
           "functions": [
             {
               "function": "minecraft:set_count",
               "count": {
-                "min": 1.0,
-                "max": 3.0,
+                "min": 3.0,
+                "max": 7.0,
                 "type": "minecraft:uniform"
               }
             }
           ],
-          "name": "minecraft:mutton"
+          "name": "minecraft:nether_wart"
         },
         {
           "type": "minecraft:item",
-          "weight": 10.0,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1.0,
-                "max": 3.0,
-                "type": "minecraft:uniform"
-              }
-            }
-          ],
-          "name": "minecraft:rabbit_hide"
+          "weight": 10,
+          "name": "minecraft:saddle"
         },
         {
           "type": "minecraft:item",
-          "weight": 5.0,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1.0,
-                "max": 3.0,
-                "type": "minecraft:uniform"
-              }
-            }
-          ],
-          "name": "minecraft:rabbit_foot"
+          "weight": 8,
+          "name": "minecraft:golden_horse_armor"
         },
         {
           "type": "minecraft:item",
-          "weight": 10.0,
+          "weight": 5,
+          "name": "minecraft:iron_horse_armor"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 3,
+          "name": "minecraft:diamond_horse_armor"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2.0,
+                "max": 4.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:obsidian"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 10,
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -156,7 +131,7 @@
               }
             }
           ],
-          "name": "minecraft:rabbit"
+          "name": "minecraft:blaze_rod"
         }
       ]
     }
