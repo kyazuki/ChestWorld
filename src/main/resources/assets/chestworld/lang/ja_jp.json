@@ -62,6 +62,9 @@
   "chestname.chestworld.dirt": "土のチェスト",
   "chestname.chestworld.ocean_monument": "海底神殿のチェスト",
   "chestname.chestworld.wither": "ウィザーのチェスト",
+  "chestname.chestworld.end_portal": "エンドポータルのチェスト",
+  "chestname.chestworld.monster_drop": "モンスターのチェスト",
+  "chestname.chestworld.animal_drop": "動物のチェスト",
 
   "chestname.chestworld.rarity.common": "☆",
   "chestname.chestworld.rarity.uncommon": "☆☆",

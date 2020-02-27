@@ -62,6 +62,9 @@
   "chestname.chestworld.dirt": "Dirt Chest",
   "chestname.chestworld.ocean_monument": "Ocean Monument Chest",
   "chestname.chestworld.wither": "Wither Chest",
+  "chestname.chestworld.end_portal": "End Portal Chest",
+  "chestname.chestworld.monster_drop": "Monster Drop Chest",
+  "chestname.chestworld.animal_drop": "Animal Drop Chest",
 
   "chestname.chestworld.rarity.common": "Common",
   "chestname.chestworld.rarity.uncommon": "Uncommon",
