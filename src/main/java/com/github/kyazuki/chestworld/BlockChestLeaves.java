@@ -7,18 +7,12 @@ import net.minecraft.world.IBlockReader;
 import net.minecraftforge.common.IPlantable;
 
 public class BlockChestLeaves extends BlockChest {
-
   public BlockChestLeaves(Properties properties) {
     super(properties);
   }
 
   @Override
   public boolean canSustainPlant(BlockState state, IBlockReader world, BlockPos pos, Direction facing, IPlantable plantable) {
-    return false;
-  }
-
-  @Override
-  public boolean isNormalCube(BlockState state, IBlockReader worldIn, BlockPos pos) {
     return false;
   }
 }

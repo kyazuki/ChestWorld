@@ -16,7 +16,6 @@ import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.IPlantable;
 
 public class BlockChest extends Block implements IPlantable {
-
   public BlockChest(Block.Properties properties) {
     super(properties);
   }

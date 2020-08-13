@@ -2,9 +2,9 @@
 チェストな世界
 
 ## 対応バージョン
-Minecraft: 1.15.2<br>
-Minecraft Forge: 31.0.0以上<br>
-http://files.minecraftforge.net/maven/net/minecraftforge/forge/index_1.15.2.html
+Minecraft: 1.16.x<br>
+Minecraft Forge: 32.0.0以上<br>
+http://files.minecraftforge.net/maven/net/minecraftforge/forge/index_1.16.1.html
 
 ## 概説
 1m四方のチェストブロックと、チェストブロックのみで構成されたバイオーム、<br>
@@ -13,6 +13,7 @@ http://files.minecraftforge.net/maven/net/minecraftforge/forge/index_1.15.2.html
 確率で、爆発したり、モブが湧いたり、スポナーに変化したりします。<br>
 ルートテーブルは、バニラ35種+オリジナル25種の計60種あり、レアリティが6段階で分かれています。<br>
 レアリティによって出現確率が異なります。
+マルチサーバーの場合は、強制的にワールドタイプが固定されます。
 
 ## configファイル
 Modを導入した状態で一回でも起動すると、configフォルダ内にchestworld-client.tomlが生成されます。<br>
@@ -31,4 +32,4 @@ Modを導入した状態で一回でも起動すると、configフォルダ内�
     確率の算出式は、上に同じです。
 
 ## 注意点
-- マルチプレイは動作未確認です。
+- 特になし。

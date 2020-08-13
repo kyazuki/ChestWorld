@@ -55,27 +55,27 @@ public class Randomizer {
     if (rare == Rarity.Common) {
       loot_table = ModLootTables.COMMON_LOOT.get(rand.nextInt(ModLootTables.COMMON_LOOT.size()));
       chestEntity.setLootTable(loot_table.getValue(), ChestWorld.rand.nextLong());
-      chestEntity.setCustomName(new TranslationTextComponent(loot_table.getKey()).appendText(" (").appendSibling(new TranslationTextComponent("chestname.chestworld.rarity.common")).appendText(")"));
+      chestEntity.setCustomName(new TranslationTextComponent(loot_table.getKey()).appendString(" (").append(new TranslationTextComponent("chestname.chestworld.rarity.common")).appendString(")"));
     } else if (rare == Rarity.Uncommon) {
       loot_table = ModLootTables.UNCOMMON_LOOT.get(rand.nextInt(ModLootTables.UNCOMMON_LOOT.size()));
       chestEntity.setLootTable(loot_table.getValue(), ChestWorld.rand.nextLong());
-      chestEntity.setCustomName(new TranslationTextComponent(loot_table.getKey()).appendText(" (").appendSibling(new TranslationTextComponent("chestname.chestworld.rarity.uncommon")).appendText(")"));
+      chestEntity.setCustomName(new TranslationTextComponent(loot_table.getKey()).appendString(" (").append(new TranslationTextComponent("chestname.chestworld.rarity.uncommon")).appendString(")"));
     } else if (rare == Rarity.Rare) {
       loot_table = ModLootTables.RARE_LOOT.get(rand.nextInt(ModLootTables.RARE_LOOT.size()));
       chestEntity.setLootTable(loot_table.getValue(), ChestWorld.rand.nextLong());
-      chestEntity.setCustomName(new TranslationTextComponent(loot_table.getKey()).appendText(" (").appendSibling(new TranslationTextComponent("chestname.chestworld.rarity.rare")).appendText(")"));
+      chestEntity.setCustomName(new TranslationTextComponent(loot_table.getKey()).appendString(" (").append(new TranslationTextComponent("chestname.chestworld.rarity.rare")).appendString(")"));
     } else if (rare == Rarity.Very_Rare) {
       loot_table = ModLootTables.VERY_RARE_LOOT.get(rand.nextInt(ModLootTables.VERY_RARE_LOOT.size()));
       chestEntity.setLootTable(loot_table.getValue(), ChestWorld.rand.nextLong());
-      chestEntity.setCustomName(new TranslationTextComponent(loot_table.getKey()).appendText(" (").appendSibling(new TranslationTextComponent("chestname.chestworld.rarity.very_rare")).appendText(")"));
+      chestEntity.setCustomName(new TranslationTextComponent(loot_table.getKey()).appendString(" (").append(new TranslationTextComponent("chestname.chestworld.rarity.very_rare")).appendString(")"));
     } else if (rare == Rarity.Ultra_Rare) {
       loot_table = ModLootTables.ULTRA_RARE_LOOT.get(rand.nextInt(ModLootTables.ULTRA_RARE_LOOT.size()));
       chestEntity.setLootTable(loot_table.getValue(), ChestWorld.rand.nextLong());
-      chestEntity.setCustomName(new TranslationTextComponent(loot_table.getKey()).appendText(" (").appendSibling(new TranslationTextComponent("chestname.chestworld.rarity.ultra_rare")).appendText(")"));
+      chestEntity.setCustomName(new TranslationTextComponent(loot_table.getKey()).appendString(" (").append(new TranslationTextComponent("chestname.chestworld.rarity.ultra_rare")).appendString(")"));
     } else if (rare == Rarity.Legendary) {
       loot_table = ModLootTables.LEGENDARY_LOOT.get(rand.nextInt(ModLootTables.LEGENDARY_LOOT.size()));
       chestEntity.setLootTable(loot_table.getValue(), ChestWorld.rand.nextLong());
-      chestEntity.setCustomName(new TranslationTextComponent(loot_table.getKey()).appendText(" (").appendSibling(new TranslationTextComponent("chestname.chestworld.rarity.legendary")).appendText(")"));
+      chestEntity.setCustomName(new TranslationTextComponent(loot_table.getKey()).appendString(" (").append(new TranslationTextComponent("chestname.chestworld.rarity.legendary")).appendString(")"));
     }
     return rare;
   }
@@ -109,22 +109,25 @@ public class Randomizer {
             EntityType.EVOKER,
             EntityType.GHAST,
             EntityType.GUARDIAN,
+            EntityType.HOGLIN,
             EntityType.HUSK,
             EntityType.MAGMA_CUBE,
-            EntityType.ZOMBIE_PIGMAN,
+            EntityType.PHANTOM,
+            EntityType.PIGLIN,
+            EntityType.PILLAGER,
+            EntityType.RAVAGER,
             EntityType.SHULKER,
             EntityType.SKELETON,
             EntityType.SLIME,
             EntityType.SPIDER,
             EntityType.STRAY,
             EntityType.VINDICATOR,
-            EntityType.PILLAGER,
             EntityType.WITCH,
             EntityType.WITHER_SKELETON,
+            EntityType.ZOGLIN,
             EntityType.ZOMBIE,
             EntityType.ZOMBIE_VILLAGER,
-            EntityType.PHANTOM,
-            EntityType.RAVAGER
+            EntityType.ZOMBIFIED_PIGLIN
     );
     SPAWNER_MONSTERS = ImmutableList.of(
             EntityType.BLAZE,
@@ -141,6 +144,7 @@ public class Randomizer {
             EntityType.SPIDER,
             EntityType.STRAY,
             EntityType.VINDICATOR,
+            EntityType.PIGLIN,
             EntityType.PILLAGER,
             EntityType.WITCH,
             EntityType.WITHER_SKELETON,

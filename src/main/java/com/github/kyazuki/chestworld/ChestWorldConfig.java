@@ -8,12 +8,13 @@ import org.apache.commons.lang3.tuple.Pair;
 
 @Mod.EventBusSubscriber(modid = ChestWorld.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ChestWorldConfig {
-  public static final ClientConfig CLIENT;
-  public static final ForgeConfigSpec CLIENT_SPEC;
+  public static final CommonConfig COMMON;
+  public static final ForgeConfigSpec COMMON_SPEC;
+
   static {
-    final Pair<ClientConfig, ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(ClientConfig::new);
-    CLIENT_SPEC = specPair.getRight();
-    CLIENT = specPair.getLeft();
+    final Pair<CommonConfig, ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(CommonConfig::new);
+    COMMON_SPEC = specPair.getRight();
+    COMMON = specPair.getLeft();
   }
 
   public static int miss_weight;
@@ -30,25 +31,25 @@ public class ChestWorldConfig {
 
   @SubscribeEvent
   public static void onModConfigEvent(final ModConfig.ModConfigEvent configEvent) {
-    if (configEvent.getConfig().getSpec() == ChestWorldConfig.CLIENT_SPEC) {
+    if (configEvent.getConfig().getSpec() == ChestWorldConfig.COMMON_SPEC) {
       bakeConfig();
     }
   }
 
   public static void bakeConfig() {
-    miss_weight = CLIENT.miss_weight.get();
-    common_weight = CLIENT.common_weight.get();
-    uncommon_weight = CLIENT.uncommon_weight.get();
-    rare_weight = CLIENT.rare_weight.get();
-    very_rare_weight = CLIENT.very_rare_weight.get();
-    ultra_rare_weight = CLIENT.ultra_rare_weight.get();
-    legendary_weight = CLIENT.legendary_weight.get();
-    explosion_weight = CLIENT.explosion_weight.get();
-    spawn_mobs_weight = CLIENT.spawn_mobs_weight.get();
-    spawner_weight = CLIENT.spawner_weight.get();
+    miss_weight = COMMON.miss_weight.get();
+    common_weight = COMMON.common_weight.get();
+    uncommon_weight = COMMON.uncommon_weight.get();
+    rare_weight = COMMON.rare_weight.get();
+    very_rare_weight = COMMON.very_rare_weight.get();
+    ultra_rare_weight = COMMON.ultra_rare_weight.get();
+    legendary_weight = COMMON.legendary_weight.get();
+    explosion_weight = COMMON.explosion_weight.get();
+    spawn_mobs_weight = COMMON.spawn_mobs_weight.get();
+    spawner_weight = COMMON.spawner_weight.get();
   }
 
-  public static class ClientConfig {
+  public static class CommonConfig {
 
     public final ForgeConfigSpec.IntValue miss_weight;
     public final ForgeConfigSpec.IntValue common_weight;
@@ -61,7 +62,7 @@ public class ChestWorldConfig {
     public final ForgeConfigSpec.IntValue explosion_weight;
     public final ForgeConfigSpec.IntValue spawner_weight;
 
-    public ClientConfig(ForgeConfigSpec.Builder builder) {
+    public CommonConfig(ForgeConfigSpec.Builder builder) {
       builder.comment("ChestWorld Config");
       builder.push("Base Weight");
       miss_weight = builder

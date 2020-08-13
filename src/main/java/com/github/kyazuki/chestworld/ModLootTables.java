@@ -1,8 +1,8 @@
 package com.github.kyazuki.chestworld;
 
 import com.google.common.collect.ImmutableList;
+import net.minecraft.loot.LootTables;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.storage.loot.LootTables;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.List;
