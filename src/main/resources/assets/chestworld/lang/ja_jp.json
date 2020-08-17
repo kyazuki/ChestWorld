@@ -40,6 +40,11 @@
   "chestname.chestworld.shipwreck.supply": "難破船チェスト",
   "chestname.chestworld.shipwreck.treasure": "難破船チェスト(宝)",
   "chestname.chestworld.outpost": "前哨基地チェスト",
+  "chestname.chestworld.bastion.treasure": "砦の遺跡チェスト(宝)",
+  "chestname.chestworld.bastion.other": "砦の遺跡チェスト",
+  "chestname.chestworld.bastion.bridge": "砦の遺跡の橋チェスト",
+  "chestname.chestworld.bastion.hoglin.stable": "ホグリンの小屋チェスト",
+  "chestname.chestworld.ruined.portal": "荒廃したポータルチェスト",
 
   "chestname.chestworld.ingot": "インゴットのチェスト",
   "chestname.chestworld.diamond_equipments": "ダイヤ装備のチェスト",

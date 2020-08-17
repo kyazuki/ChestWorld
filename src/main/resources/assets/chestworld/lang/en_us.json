@@ -40,6 +40,11 @@
   "chestname.chestworld.shipwreck.supply": "Shipwrech Supply Chest",
   "chestname.chestworld.shipwreck.treasure": "Shipwrech Treasure Chest",
   "chestname.chestworld.outpost": "Outpost Chest",
+  "chestname.chestworld.bastion.treasure": "Bastion Treasure Chest",
+  "chestname.chestworld.bastion.other": "Bastion Chest",
+  "chestname.chestworld.bastion.bridge": "Bastion Bridge Chest",
+  "chestname.chestworld.bastion.hoglin.stable": "Bastion Hoglin Stable Chest",
+  "chestname.chestworld.ruined.portal": "Ruined Portal Chest",
 
   "chestname.chestworld.ingot": "Ingot Chest",
   "chestname.chestworld.diamond_equipments": "Diamond Equipments Chest",

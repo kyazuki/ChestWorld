@@ -1,6 +1,7 @@
 {
   "homepage": "https://github.com/kyazuki/ChestWorld/releases",
   "1.16.1": {
+    "0.1.3": "Add 1.16 chests.",
     "0.1.2": "1.16 update."
   },
   "1.15.2": {

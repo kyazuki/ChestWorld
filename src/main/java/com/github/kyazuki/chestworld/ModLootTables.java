@@ -44,6 +44,11 @@ public class ModLootTables {
   public static final Pair<String, ResourceLocation> CHESTS_SHIPWRECK_SUPPLY;
   public static final Pair<String, ResourceLocation> CHESTS_SHIPWRECK_TREASURE;
   public static final Pair<String, ResourceLocation> CHESTS_PILLAGER_OUTPOST;
+  public static final Pair<String, ResourceLocation> CHESTS_BASTION_TREASURE;
+  public static final Pair<String, ResourceLocation> CHESTS_BASTION_OTHER;
+  public static final Pair<String, ResourceLocation> CHESTS_BASTION_BRIDGE;
+  public static final Pair<String, ResourceLocation> CHESTS_BASTION_HOGLIN_STABLE;
+  public static final Pair<String, ResourceLocation> CHESTS_RUINED_PORTAL;
   public static final Pair<String, ResourceLocation> INGOT;
   public static final Pair<String, ResourceLocation> DIAMOND_EQUIPMENTS;
   public static final Pair<String, ResourceLocation> SAND;
@@ -112,6 +117,11 @@ public class ModLootTables {
     CHESTS_SHIPWRECK_SUPPLY = Pair.of("chestname.chestworld.shipwreck.supply", LootTables.CHESTS_SHIPWRECK_SUPPLY);
     CHESTS_SHIPWRECK_TREASURE = Pair.of("chestname.chestworld.shipwreck.treasure", LootTables.CHESTS_SHIPWRECK_TREASURE);
     CHESTS_PILLAGER_OUTPOST = Pair.of("chestname.chestworld.outpost", LootTables.CHESTS_PILLAGER_OUTPOST);
+    CHESTS_BASTION_TREASURE = Pair.of("chestname.chestworld.bastion.treasure", LootTables.field_237380_L_);
+    CHESTS_BASTION_OTHER = Pair.of("chestname.chestworld.bastion.treasure", LootTables.field_237381_M_);
+    CHESTS_BASTION_BRIDGE = Pair.of("chestname.chestworld.bastion.treasure", LootTables.field_237382_N_);
+    CHESTS_BASTION_HOGLIN_STABLE = Pair.of("chestname.chestworld.bastion.treasure", LootTables.field_237383_O_);
+    CHESTS_RUINED_PORTAL = Pair.of("chestname.chestworld.bastion.treasure", LootTables.field_237384_P_);
 
     CHESTS_NETHER_BRIDGE = Pair.of("chestname.chestworld.nether_fortress", new ResourceLocation(ChestWorld.MODID, "chests/nether_bridge"));
 
@@ -141,76 +151,81 @@ public class ModLootTables {
     ANIMAL_DROP = Pair.of("chestname.chestworld.animal_drop", new ResourceLocation(ChestWorld.MODID, "chests/animal_drop"));
 
     COMMON_LOOT = ImmutableList.of(
-            CHESTS_SPAWN_BONUS_CHEST,
-            SAND,
-            STONE,
-            PLAINS,
-            DESERT,
-            SWAMP,
-            TAIGA,
-            SAVANNA,
-            JUNGLE,
-            BADLANDS,
-            NETHER,
-            THE_END,
-            FLOWER,
-            WOOL,
-            DIRT
+        CHESTS_SPAWN_BONUS_CHEST,
+        SAND,
+        STONE,
+        PLAINS,
+        DESERT,
+        SWAMP,
+        TAIGA,
+        SAVANNA,
+        JUNGLE,
+        BADLANDS,
+        NETHER,
+        THE_END,
+        FLOWER,
+        WOOL,
+        DIRT
     );
     UNCOMMON_LOOT = ImmutableList.of(
-            CHESTS_VILLAGE_VILLAGE_WEAPONSMITH,
-            CHESTS_VILLAGE_VILLAGE_TOOLSMITH,
-            CHESTS_VILLAGE_VILLAGE_ARMORER,
-            CHESTS_VILLAGE_VILLAGE_CARTOGRAPHER,
-            CHESTS_VILLAGE_VILLAGE_MASON,
-            CHESTS_VILLAGE_VILLAGE_SHEPHERD,
-            CHESTS_VILLAGE_VILLAGE_BUTCHER,
-            CHESTS_VILLAGE_VILLAGE_FLETCHER,
-            CHESTS_VILLAGE_VILLAGE_FISHER,
-            CHESTS_VILLAGE_VILLAGE_TANNERY,
-            CHESTS_VILLAGE_VILLAGE_TEMPLE,
-            CHESTS_VILLAGE_VILLAGE_DESERT_HOUSE,
-            CHESTS_VILLAGE_VILLAGE_PLAINS_HOUSE,
-            CHESTS_VILLAGE_VILLAGE_TAIGA_HOUSE,
-            CHESTS_VILLAGE_VILLAGE_SNOWY_HOUSE,
-            CHESTS_VILLAGE_VILLAGE_SAVANNA_HOUSE,
-            CHESTS_PILLAGER_OUTPOST,
-            CHEST,
-            OCEAN_MONUMENT,
-            ANIMAL_DROP
+        CHESTS_VILLAGE_VILLAGE_WEAPONSMITH,
+        CHESTS_VILLAGE_VILLAGE_TOOLSMITH,
+        CHESTS_VILLAGE_VILLAGE_ARMORER,
+        CHESTS_VILLAGE_VILLAGE_CARTOGRAPHER,
+        CHESTS_VILLAGE_VILLAGE_MASON,
+        CHESTS_VILLAGE_VILLAGE_SHEPHERD,
+        CHESTS_VILLAGE_VILLAGE_BUTCHER,
+        CHESTS_VILLAGE_VILLAGE_FLETCHER,
+        CHESTS_VILLAGE_VILLAGE_FISHER,
+        CHESTS_VILLAGE_VILLAGE_TANNERY,
+        CHESTS_VILLAGE_VILLAGE_TEMPLE,
+        CHESTS_VILLAGE_VILLAGE_DESERT_HOUSE,
+        CHESTS_VILLAGE_VILLAGE_PLAINS_HOUSE,
+        CHESTS_VILLAGE_VILLAGE_TAIGA_HOUSE,
+        CHESTS_VILLAGE_VILLAGE_SNOWY_HOUSE,
+        CHESTS_VILLAGE_VILLAGE_SAVANNA_HOUSE,
+        CHESTS_PILLAGER_OUTPOST,
+        CHEST,
+        OCEAN_MONUMENT,
+        ANIMAL_DROP
     );
     RARE_LOOT = ImmutableList.of(
-            CHESTS_SIMPLE_DUNGEON,
-            CHESTS_ABANDONED_MINESHAFT,
-            CHESTS_STRONGHOLD_LIBRARY,
-            CHESTS_STRONGHOLD_CROSSING,
-            CHESTS_STRONGHOLD_CORRIDOR,
-            CHESTS_IGLOO_CHEST,
-            CHESTS_UNDERWATER_RUIN_SMALL,
-            CHESTS_UNDERWATER_RUIN_BIG,
-            CHESTS_SHIPWRECK_MAP,
-            CHESTS_SHIPWRECK_SUPPLY,
-            CHESTS_SHIPWRECK_TREASURE,
-            INGOT,
-            ORE,
-            MONSTER_DROP
+        CHESTS_SIMPLE_DUNGEON,
+        CHESTS_ABANDONED_MINESHAFT,
+        CHESTS_STRONGHOLD_LIBRARY,
+        CHESTS_STRONGHOLD_CROSSING,
+        CHESTS_STRONGHOLD_CORRIDOR,
+        CHESTS_IGLOO_CHEST,
+        CHESTS_UNDERWATER_RUIN_SMALL,
+        CHESTS_UNDERWATER_RUIN_BIG,
+        CHESTS_SHIPWRECK_MAP,
+        CHESTS_SHIPWRECK_SUPPLY,
+        CHESTS_SHIPWRECK_TREASURE,
+        INGOT,
+        ORE,
+        MONSTER_DROP
     );
     VERY_RARE_LOOT = ImmutableList.of(
-            EMPTY,
-            CHESTS_NETHER_BRIDGE,
-            CHESTS_DESERT_PYRAMID,
-            CHESTS_JUNGLE_TEMPLE,
-            CHESTS_WOODLAND_MANSION
+        EMPTY,
+        CHESTS_NETHER_BRIDGE,
+        CHESTS_DESERT_PYRAMID,
+        CHESTS_JUNGLE_TEMPLE,
+        CHESTS_WOODLAND_MANSION,
+        CHESTS_BASTION_OTHER,
+        CHESTS_BASTION_BRIDGE,
+        CHESTS_BASTION_HOGLIN_STABLE,
+        CHESTS_RUINED_PORTAL
     );
     ULTRA_RARE_LOOT = ImmutableList.of(
-            CHESTS_END_CITY_TREASURE,
-            CHESTS_BURIED_TREASURE
+        CHESTS_END_CITY_TREASURE,
+        CHESTS_BURIED_TREASURE,
+        CHESTS_BASTION_TREASURE
     );
     LEGENDARY_LOOT = ImmutableList.of(
-            DIAMOND_EQUIPMENTS,
-            BEACON,
-            WITHER,
-            END_PORTAL
+        DIAMOND_EQUIPMENTS,
+        BEACON,
+        WITHER,
+        END_PORTAL
     );
   }
 }
