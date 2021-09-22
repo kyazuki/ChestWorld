@@ -1,4 +1,4 @@
-package com.github.kyazuki.chestworld;
+package com.github.kyazuki.chestworld.block;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.util.Direction;

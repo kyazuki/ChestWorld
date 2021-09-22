@@ -1,5 +1,5 @@
 {
-  "generator.chestworld": "Chest World",
+  "generator.chestworld.chest_world": "Chest World",
   "block.chestworld.block_chest": "Chest Block",
   "block.chestworld.block_chest_leaves": "Chest Block(Non Solid)",
   "biome.chestworld.chest_biome": "Chest Biome",

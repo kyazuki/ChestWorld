@@ -1,5 +1,6 @@
-package com.github.kyazuki.chestworld;
+package com.github.kyazuki.chestworld.loot;
 
+import com.github.kyazuki.chestworld.ChestWorld;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.loot.LootTables;
 import net.minecraft.util.ResourceLocation;
@@ -117,11 +118,11 @@ public class ModLootTables {
     CHESTS_SHIPWRECK_SUPPLY = Pair.of("chestname.chestworld.shipwreck.supply", LootTables.CHESTS_SHIPWRECK_SUPPLY);
     CHESTS_SHIPWRECK_TREASURE = Pair.of("chestname.chestworld.shipwreck.treasure", LootTables.CHESTS_SHIPWRECK_TREASURE);
     CHESTS_PILLAGER_OUTPOST = Pair.of("chestname.chestworld.outpost", LootTables.CHESTS_PILLAGER_OUTPOST);
-    CHESTS_BASTION_TREASURE = Pair.of("chestname.chestworld.bastion.treasure", LootTables.field_237380_L_);
-    CHESTS_BASTION_OTHER = Pair.of("chestname.chestworld.bastion.treasure", LootTables.field_237381_M_);
-    CHESTS_BASTION_BRIDGE = Pair.of("chestname.chestworld.bastion.treasure", LootTables.field_237382_N_);
-    CHESTS_BASTION_HOGLIN_STABLE = Pair.of("chestname.chestworld.bastion.treasure", LootTables.field_237383_O_);
-    CHESTS_RUINED_PORTAL = Pair.of("chestname.chestworld.bastion.treasure", LootTables.field_237384_P_);
+    CHESTS_BASTION_TREASURE = Pair.of("chestname.chestworld.bastion.treasure", LootTables.BASTION_TREASURE);
+    CHESTS_BASTION_OTHER = Pair.of("chestname.chestworld.bastion.treasure", LootTables.BASTION_OTHER);
+    CHESTS_BASTION_BRIDGE = Pair.of("chestname.chestworld.bastion.treasure", LootTables.BASTION_BRIDGE);
+    CHESTS_BASTION_HOGLIN_STABLE = Pair.of("chestname.chestworld.bastion.treasure", LootTables.BASTION_HOGLIN_STABLE);
+    CHESTS_RUINED_PORTAL = Pair.of("chestname.chestworld.bastion.treasure", LootTables.RUINED_PORTAL);
 
     CHESTS_NETHER_BRIDGE = Pair.of("chestname.chestworld.nether_fortress", new ResourceLocation(ChestWorld.MODID, "chests/nether_bridge"));
 

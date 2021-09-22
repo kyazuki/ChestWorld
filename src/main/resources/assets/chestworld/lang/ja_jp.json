@@ -1,5 +1,5 @@
 {
-  "generator.chestworld": "チェストな世界",
+  "generator.chestworld.chest_world": "チェストな世界",
   "block.chestworld.block_chest": "チェストブロック",
   "block.chestworld.block_chest_leaves": "チェストブロック(透過)",
   "biome.chestworld.chest_biome": "チェストバイオーム",

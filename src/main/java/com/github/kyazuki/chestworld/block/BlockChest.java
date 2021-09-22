@@ -1,5 +1,7 @@
-package com.github.kyazuki.chestworld;
+package com.github.kyazuki.chestworld.block;
 
+import com.github.kyazuki.chestworld.ChestWorld;
+import com.github.kyazuki.chestworld.util.Randomizer;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -72,7 +74,7 @@ public class BlockChest extends Block implements IPlantable {
           ((ServerWorld) worldIn).spawnParticle(new RedstoneParticleData(r, g, b, 1.0f), (double) pos.getX() + 0.5d, (double) pos.getY() + 0.5d, (double) pos.getZ() + 0.5d, 100, 0.5, 0.5, 0.5, 1);
           worldIn.playSound(null, pos, SoundEvents.BLOCK_ANVIL_LAND, SoundCategory.BLOCKS, 1, 2);
         } else {
-          Randomizer.happenSomething(worldIn, pos, ChestWorld.rand);
+          Randomizer.happenSomething((ServerWorld) worldIn, pos, ChestWorld.rand);
           worldIn.playSound(null, pos, SoundEvents.BLOCK_CONDUIT_DEACTIVATE, SoundCategory.BLOCKS, 1, 1);
         }
       }
