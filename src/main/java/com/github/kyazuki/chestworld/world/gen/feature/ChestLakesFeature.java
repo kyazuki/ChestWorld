@@ -15,23 +15,23 @@ import net.minecraft.world.gen.feature.structure.Structure;
 import java.util.Random;
 
 public class ChestLakesFeature extends LakesFeature {
-  private static final BlockState AIR = Blocks.CAVE_AIR.getDefaultState();
+  private static final BlockState AIR = Blocks.CAVE_AIR.defaultBlockState();
 
   public ChestLakesFeature(Codec<BlockStateFeatureConfig> codec) {
     super(codec);
   }
 
   @Override
-  public boolean generate(ISeedReader reader, ChunkGenerator generator, Random rand, BlockPos pos, BlockStateFeatureConfig config) {
-    while(pos.getY() > 5 && reader.isAirBlock(pos)) {
-      pos = pos.down();
+  public boolean place(ISeedReader reader, ChunkGenerator generator, Random rand, BlockPos pos, BlockStateFeatureConfig config) {
+    while(pos.getY() > 5 && reader.isEmptyBlock(pos)) {
+      pos = pos.below();
     }
 
     if (pos.getY() <= 4) {
       return false;
     } else {
-      pos = pos.down(4);
-      if (reader.func_241827_a(SectionPos.from(pos), Structure.VILLAGE).findAny().isPresent()) {
+      pos = pos.below(4);
+      if (reader.startsForFeature(SectionPos.of(pos), Structure.VILLAGE).findAny().isPresent()) {
         return false;
       } else {
         boolean[] aboolean = new boolean[2048];
@@ -65,12 +65,12 @@ public class ChestLakesFeature extends LakesFeature {
             for(int k = 0; k < 8; ++k) {
               boolean flag = !aboolean[(k1 * 16 + l2) * 8 + k] && (k1 < 15 && aboolean[((k1 + 1) * 16 + l2) * 8 + k] || k1 > 0 && aboolean[((k1 - 1) * 16 + l2) * 8 + k] || l2 < 15 && aboolean[(k1 * 16 + l2 + 1) * 8 + k] || l2 > 0 && aboolean[(k1 * 16 + (l2 - 1)) * 8 + k] || k < 7 && aboolean[(k1 * 16 + l2) * 8 + k + 1] || k > 0 && aboolean[(k1 * 16 + l2) * 8 + (k - 1)]);
               if (flag) {
-                Material material = reader.getBlockState(pos.add(k1, k, l2)).getMaterial();
+                Material material = reader.getBlockState(pos.offset(k1, k, l2)).getMaterial();
                 if (k >= 4 && material.isLiquid()) {
                   return false;
                 }
 
-                if (k < 4 && !material.isSolid() && reader.getBlockState(pos.add(k1, k, l2)) != config.state) {
+                if (k < 4 && !material.isSolid() && reader.getBlockState(pos.offset(k1, k, l2)) != config.state) {
                   return false;
                 }
               }
@@ -82,7 +82,7 @@ public class ChestLakesFeature extends LakesFeature {
           for(int i3 = 0; i3 < 16; ++i3) {
             for(int i4 = 0; i4 < 8; ++i4) {
               if (aboolean[(l1 * 16 + i3) * 8 + i4]) {
-                reader.setBlockState(pos.add(l1, i4, i3), i4 >= 4 ? AIR : config.state, 2);
+                reader.setBlock(pos.offset(l1, i4, i3), i4 >= 4 ? AIR : config.state, 2);
               }
             }
           }

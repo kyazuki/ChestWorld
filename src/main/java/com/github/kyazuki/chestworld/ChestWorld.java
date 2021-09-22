@@ -38,12 +38,12 @@ import java.util.Random;
 public class ChestWorld {
   public static final String MODID = "chestworld";
   public static final Logger LOGGER = LogManager.getLogger(MODID);
-  public static final Block CHEST_BLOCK = new BlockChest(Block.Properties.create((new Material.Builder(MaterialColor.WOOD)).build()).hardnessAndResistance(2.5F).sound(SoundType.WOOD));
-  public static final Block CHEST_BLOCK_LEAVES = new BlockChestLeaves(Block.Properties.create(new Material(MaterialColor.WOOD, false, true, true, false, false, false, PushReaction.NORMAL)).hardnessAndResistance(2.5F).sound(SoundType.WOOD));
+  public static final Block CHEST_BLOCK = new BlockChest(Block.Properties.of((new Material.Builder(MaterialColor.WOOD)).build()).strength(2.5F).sound(SoundType.WOOD));
+  public static final Block CHEST_BLOCK_LEAVES = new BlockChestLeaves(Block.Properties.of(new Material(MaterialColor.WOOD, false, true, true, false, false, false, PushReaction.NORMAL)).strength(2.5F).sound(SoundType.WOOD));
   public static final WorldCarver<ProbabilityConfig> CHEST_CAVE = new ChestCaveWorldCarver(ProbabilityConfig.CODEC, 256);
   public static final WorldCarver<ProbabilityConfig> CHEST_CANYON = new ChestCanyonWorldCarver(ProbabilityConfig.CODEC);
   public static final Feature<BlockStateFeatureConfig> CHEST_LAKE = new ChestLakesFeature(BlockStateFeatureConfig.CODEC);
-  public static final Biome CHEST_BIOME = ChestWorldBiomeMaker.makeChestBiome();
+  public static final Biome CHEST_BIOME = ChestWorldBiomeMaker.chestBiome();
   public static final ForgeWorldType CHEST_WORLD = new ChestWorldType();
   public static final Random rand = new Random();
 
@@ -73,8 +73,8 @@ public class ChestWorld {
   @SubscribeEvent
   public static void onRegisterItem(RegistryEvent.Register<Item> event) {
     event.getRegistry().registerAll(
-            setup(new BlockItem(CHEST_BLOCK, new Item.Properties().group(ItemGroup.MISC)), "block_chest"),
-            setup(new BlockItem(CHEST_BLOCK_LEAVES, new Item.Properties().group(ItemGroup.MISC)), "block_chest_leaves")
+            setup(new BlockItem(CHEST_BLOCK, new Item.Properties().tab(ItemGroup.TAB_MISC)), "block_chest"),
+            setup(new BlockItem(CHEST_BLOCK_LEAVES, new Item.Properties().tab(ItemGroup.TAB_MISC)), "block_chest_leaves")
     );
   }
 

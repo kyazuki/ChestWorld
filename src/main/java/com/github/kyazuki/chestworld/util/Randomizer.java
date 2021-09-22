@@ -58,27 +58,27 @@ public class Randomizer {
     if (rare == Rarity.Common) {
       loot_table = ModLootTables.COMMON_LOOT.get(rand.nextInt(ModLootTables.COMMON_LOOT.size()));
       chestEntity.setLootTable(loot_table.getValue(), ChestWorld.rand.nextLong());
-      chestEntity.setCustomName(new TranslationTextComponent(loot_table.getKey()).appendString(" (").appendSibling(new TranslationTextComponent("chestname.chestworld.rarity.common")).appendString(")"));
+      chestEntity.setCustomName(new TranslationTextComponent(loot_table.getKey()).append(" (").append(new TranslationTextComponent("chestname.chestworld.rarity.common")).append(")"));
     } else if (rare == Rarity.Uncommon) {
       loot_table = ModLootTables.UNCOMMON_LOOT.get(rand.nextInt(ModLootTables.UNCOMMON_LOOT.size()));
       chestEntity.setLootTable(loot_table.getValue(), ChestWorld.rand.nextLong());
-      chestEntity.setCustomName(new TranslationTextComponent(loot_table.getKey()).appendString(" (").appendSibling(new TranslationTextComponent("chestname.chestworld.rarity.uncommon")).appendString(")"));
+      chestEntity.setCustomName(new TranslationTextComponent(loot_table.getKey()).append(" (").append(new TranslationTextComponent("chestname.chestworld.rarity.uncommon")).append(")"));
     } else if (rare == Rarity.Rare) {
       loot_table = ModLootTables.RARE_LOOT.get(rand.nextInt(ModLootTables.RARE_LOOT.size()));
       chestEntity.setLootTable(loot_table.getValue(), ChestWorld.rand.nextLong());
-      chestEntity.setCustomName(new TranslationTextComponent(loot_table.getKey()).appendString(" (").appendSibling(new TranslationTextComponent("chestname.chestworld.rarity.rare")).appendString(")"));
+      chestEntity.setCustomName(new TranslationTextComponent(loot_table.getKey()).append(" (").append(new TranslationTextComponent("chestname.chestworld.rarity.rare")).append(")"));
     } else if (rare == Rarity.Very_Rare) {
       loot_table = ModLootTables.VERY_RARE_LOOT.get(rand.nextInt(ModLootTables.VERY_RARE_LOOT.size()));
       chestEntity.setLootTable(loot_table.getValue(), ChestWorld.rand.nextLong());
-      chestEntity.setCustomName(new TranslationTextComponent(loot_table.getKey()).appendString(" (").appendSibling(new TranslationTextComponent("chestname.chestworld.rarity.very_rare")).appendString(")"));
+      chestEntity.setCustomName(new TranslationTextComponent(loot_table.getKey()).append(" (").append(new TranslationTextComponent("chestname.chestworld.rarity.very_rare")).append(")"));
     } else if (rare == Rarity.Ultra_Rare) {
       loot_table = ModLootTables.ULTRA_RARE_LOOT.get(rand.nextInt(ModLootTables.ULTRA_RARE_LOOT.size()));
       chestEntity.setLootTable(loot_table.getValue(), ChestWorld.rand.nextLong());
-      chestEntity.setCustomName(new TranslationTextComponent(loot_table.getKey()).appendString(" (").appendSibling(new TranslationTextComponent("chestname.chestworld.rarity.ultra_rare")).appendString(")"));
+      chestEntity.setCustomName(new TranslationTextComponent(loot_table.getKey()).append(" (").append(new TranslationTextComponent("chestname.chestworld.rarity.ultra_rare")).append(")"));
     } else if (rare == Rarity.Legendary) {
       loot_table = ModLootTables.LEGENDARY_LOOT.get(rand.nextInt(ModLootTables.LEGENDARY_LOOT.size()));
       chestEntity.setLootTable(loot_table.getValue(), ChestWorld.rand.nextLong());
-      chestEntity.setCustomName(new TranslationTextComponent(loot_table.getKey()).appendString(" (").appendSibling(new TranslationTextComponent("chestname.chestworld.rarity.legendary")).appendString(")"));
+      chestEntity.setCustomName(new TranslationTextComponent(loot_table.getKey()).append(" (").append(new TranslationTextComponent("chestname.chestworld.rarity.legendary")).append(")"));
     }
     return rare;
   }
@@ -90,12 +90,12 @@ public class Randomizer {
       MONSTERS.get(rand.nextInt(MONSTERS.size())).spawn(world, null, null, null, pos, SpawnReason.NATURAL, false, false);
     } else if (rand_num < ChestWorldConfig.explosion_weight + ChestWorldConfig.spawn_mobs_weight) {
       world.destroyBlock(pos, false);
-      world.createExplosion(null, (double) pos.getX() + 0.5d, (double) pos.getY() + 0.5d, (double) pos.getZ() + 0.5d, 3.0f, Explosion.Mode.DESTROY);
+      world.explode(null, (double) pos.getX() + 0.5d, (double) pos.getY() + 0.5d, (double) pos.getZ() + 0.5d, 3.0f, Explosion.Mode.DESTROY);
     } else {
-      world.setBlockState(pos, Blocks.SPAWNER.getDefaultState(), 2);
-      TileEntity tileentity = world.getTileEntity(pos);
+      world.setBlock(pos, Blocks.SPAWNER.defaultBlockState(), 2);
+      TileEntity tileentity = world.getBlockEntity(pos);
       if (tileentity instanceof MobSpawnerTileEntity) {
-        ((MobSpawnerTileEntity) tileentity).getSpawnerBaseLogic().setEntityType(SPAWNER_MONSTERS.get(rand.nextInt(SPAWNER_MONSTERS.size())));
+        ((MobSpawnerTileEntity) tileentity).getSpawner().setEntityId(SPAWNER_MONSTERS.get(rand.nextInt(SPAWNER_MONSTERS.size())));
       }
     }
   }

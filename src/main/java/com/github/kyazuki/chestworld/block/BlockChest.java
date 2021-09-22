@@ -25,23 +25,23 @@ public class BlockChest extends Block implements IPlantable {
   @Override
   public BlockState getPlant(IBlockReader world, BlockPos pos) {
     BlockState state = world.getBlockState(pos);
-    if (state.getBlock() != this) return getDefaultState();
+    if (state.getBlock() != this) return defaultBlockState();
     return state;
   }
 
   @Override
   public boolean canSustainPlant(BlockState state, IBlockReader world, BlockPos pos, Direction facing, net.minecraftforge.common.IPlantable plantable) {
-    BlockState plant = plantable.getPlant(world, pos.offset(facing));
+    BlockState plant = plantable.getPlant(world, pos.relative(facing));
     return plant.getBlock() == this.getBlock();
   }
 
   @Override
-  public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult p_225533_6_) {
-    if (!worldIn.isRemote()) {
-      if (worldIn.getBlockState(pos.up()).getBlock() == ChestWorld.CHEST_BLOCK)
-        worldIn.setBlockState(pos.up(), ChestWorld.CHEST_BLOCK_LEAVES.getDefaultState(), 2);
-      worldIn.setBlockState(pos, Blocks.CHEST.getDefaultState(), 2);
-      TileEntity chestEntity = worldIn.getTileEntity(pos);
+  public ActionResultType use(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult p_225533_6_) {
+    if (!worldIn.isClientSide()) {
+      if (worldIn.getBlockState(pos.above()).getBlock() == ChestWorld.CHEST_BLOCK)
+        worldIn.setBlock(pos.above(), ChestWorld.CHEST_BLOCK_LEAVES.defaultBlockState(), 2);
+      worldIn.setBlock(pos, Blocks.CHEST.defaultBlockState(), 2);
+      TileEntity chestEntity = worldIn.getBlockEntity(pos);
       float r = 0.0f, g = 0.0f, b = 0.0f;
       if (chestEntity instanceof ChestTileEntity) {
         Randomizer.Rarity rarity = Randomizer.setRandomLootTable((ChestTileEntity) chestEntity, ChestWorld.rand);
@@ -71,11 +71,11 @@ public class BlockChest extends Block implements IPlantable {
           b = 1.0f;
         }
         if (rarity != Randomizer.Rarity.Miss) {
-          ((ServerWorld) worldIn).spawnParticle(new RedstoneParticleData(r, g, b, 1.0f), (double) pos.getX() + 0.5d, (double) pos.getY() + 0.5d, (double) pos.getZ() + 0.5d, 100, 0.5, 0.5, 0.5, 1);
-          worldIn.playSound(null, pos, SoundEvents.BLOCK_ANVIL_LAND, SoundCategory.BLOCKS, 1, 2);
+          ((ServerWorld) worldIn).sendParticles(new RedstoneParticleData(r, g, b, 1.0f), (double) pos.getX() + 0.5d, (double) pos.getY() + 0.5d, (double) pos.getZ() + 0.5d, 100, 0.5, 0.5, 0.5, 1);
+          worldIn.playSound(null, pos, SoundEvents.ANVIL_LAND, SoundCategory.BLOCKS, 1, 2);
         } else {
           Randomizer.happenSomething((ServerWorld) worldIn, pos, ChestWorld.rand);
-          worldIn.playSound(null, pos, SoundEvents.BLOCK_CONDUIT_DEACTIVATE, SoundCategory.BLOCKS, 1, 1);
+          worldIn.playSound(null, pos, SoundEvents.CONDUIT_DEACTIVATE, SoundCategory.BLOCKS, 1, 1);
         }
       }
       return ActionResultType.SUCCESS;

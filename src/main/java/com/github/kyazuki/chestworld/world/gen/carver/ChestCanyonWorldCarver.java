@@ -10,6 +10,6 @@ public class ChestCanyonWorldCarver extends CanyonWorldCarver {
 
   public ChestCanyonWorldCarver(Codec<ProbabilityConfig> codec) {
     super(codec);
-    this.carvableBlocks = ImmutableSet.of(ChestWorld.CHEST_BLOCK);
+    this.replaceableBlocks = ImmutableSet.of(ChestWorld.CHEST_BLOCK);
   }
 }

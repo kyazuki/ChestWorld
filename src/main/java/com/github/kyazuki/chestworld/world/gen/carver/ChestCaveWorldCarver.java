@@ -10,6 +10,6 @@ public class ChestCaveWorldCarver extends CaveWorldCarver {
 
   public ChestCaveWorldCarver(Codec<ProbabilityConfig> codec, int p_i231917_2_) {
     super(codec, p_i231917_2_);
-    this.carvableBlocks = ImmutableSet.of(ChestWorld.CHEST_BLOCK);
+    this.replaceableBlocks = ImmutableSet.of(ChestWorld.CHEST_BLOCK);
   }
 }
