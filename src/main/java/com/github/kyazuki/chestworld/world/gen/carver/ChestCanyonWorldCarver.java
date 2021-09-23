@@ -3,13 +3,13 @@ package com.github.kyazuki.chestworld.world.gen.carver;
 import com.github.kyazuki.chestworld.ChestWorld;
 import com.google.common.collect.ImmutableSet;
 import com.mojang.serialization.Codec;
-import net.minecraft.world.gen.carver.CanyonWorldCarver;
-import net.minecraft.world.gen.feature.ProbabilityConfig;
+import net.minecraft.world.level.levelgen.carver.CanyonCarverConfiguration;
+import net.minecraft.world.level.levelgen.carver.CanyonWorldCarver;
 
 public class ChestCanyonWorldCarver extends CanyonWorldCarver {
 
-  public ChestCanyonWorldCarver(Codec<ProbabilityConfig> codec) {
+  public ChestCanyonWorldCarver(Codec<CanyonCarverConfiguration> codec) {
     super(codec);
-    this.carvableBlocks = ImmutableSet.of(ChestWorld.CHEST_BLOCK);
+    this.replaceableBlocks = ImmutableSet.of(ChestWorld.CHEST_BLOCK);
   }
 }

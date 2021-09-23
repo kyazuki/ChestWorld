@@ -1,5 +1,8 @@
 {
   "homepage": "https://github.com/kyazuki/ChestWorld/releases",
+  "1.17.1": {
+    "0.1.4": "1.17.1 update."
+  },
   "1.16.5": {
     "0.1.4": "1.16.5 update."
   },
@@ -13,6 +16,8 @@
     "0.1.0": "Published."
   },
   "promos": {
+    "1.17.1-latest": "0.1.4",
+    "1.17.1-recommended": "0.1.4",
     "1.16.5-latest": "0.1.4",
     "1.16.5-recommended": "0.1.4",
     "1.16.1-latest": "0.1.3",

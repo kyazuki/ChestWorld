@@ -10,6 +10,20 @@
       "entries": [
         {
           "type": "minecraft:item",
+          "weight": 30.0,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 5.0,
+                "max": 10.0,
+                "type": "minecraft:uniform"
+              }
+            }
+          ],
+          "name": "minecraft:copper_ingot"
+        },{
+          "type": "minecraft:item",
           "weight": 40.0,
           "functions": [
             {

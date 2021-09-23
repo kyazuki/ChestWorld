@@ -2,20 +2,20 @@
 チェストな世界
 
 ## 対応バージョン
-Minecraft: 1.16.x<br>
-Minecraft Forge: 32.0.0以上<br>
-http://files.minecraftforge.net/maven/net/minecraftforge/forge/index_1.16.1.html
+Minecraft: 1.17.x<br>
+Minecraft Forge: 37.0.0以上<br>
+http://files.minecraftforge.net/maven/net/minecraftforge/forge/index_1.17.1.html
 
 ## 概説
 1m四方のチェストブロックと、チェストブロックのみで構成されたバイオーム、<br>
 そのバイオームのみを生成するワールドタイプを追加します。<br>
 チェストブロックは右クリックすることで、ランダムなルートテーブルが適用されたチェストに変化します。<br>
 確率で、爆発したり、モブが湧いたり、スポナーに変化したりします。<br>
-ルートテーブルは、バニラ39種+オリジナル26種の計65あり、レアリティが6段階で分かれています。<br>
+ルートテーブルは、バニラ39種+オリジナル27種の計66あり、レアリティが6段階で分かれています。<br>
 レアリティによって出現確率が異なります。
 
 ## configファイル
-Modを導入した状態で一回でも起動すると、configフォルダ内にchestworld-client.tomlが生成されます。<br>
+Modを導入した状態で一回でも起動すると、configフォルダ内にchestworld-common.tomlが生成されます。<br>
 値の変更は次回の起動時に適用されます。
 - Base Weight
   - 各レア度の排出割合です。<br>

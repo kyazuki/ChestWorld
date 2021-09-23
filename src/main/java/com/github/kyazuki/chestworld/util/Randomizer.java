@@ -4,17 +4,17 @@ import com.github.kyazuki.chestworld.ChestWorld;
 import com.github.kyazuki.chestworld.ChestWorldConfig;
 import com.github.kyazuki.chestworld.loot.ModLootTables;
 import com.google.common.collect.ImmutableList;
-import net.minecraft.block.Blocks;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SpawnReason;
-import net.minecraft.tileentity.ChestTileEntity;
-import net.minecraft.tileentity.MobSpawnerTileEntity;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.TranslationTextComponent;
-import net.minecraft.world.Explosion;
-import net.minecraft.world.server.ServerWorld;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.level.Explosion;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.ChestBlockEntity;
+import net.minecraft.world.level.block.entity.SpawnerBlockEntity;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.List;
@@ -25,77 +25,87 @@ public class Randomizer {
   private static final List<EntityType> SPAWNER_MONSTERS;
 
   public enum Rarity {
-    Miss,
-    Common,
-    Uncommon,
-    Rare,
-    Very_Rare,
-    Ultra_Rare,
-    Legendary
+    MISS,
+    COMMON,
+    UNCOMMON,
+    RARE,
+    VERY_RARE,
+    ULTRA_RARE,
+    LEGENDARY
   }
 
   private static Rarity throwRarity(Random rand) {
-    int rarity = rand.nextInt(ChestWorldConfig.miss_weight + ChestWorldConfig.common_weight + ChestWorldConfig.uncommon_weight + ChestWorldConfig.rare_weight + ChestWorldConfig.very_rare_weight + ChestWorldConfig.ultra_rare_weight + ChestWorldConfig.legendary_weight);
-    if (rarity < ChestWorldConfig.legendary_weight)
-      return Rarity.Legendary;
-    else if (rarity < ChestWorldConfig.ultra_rare_weight + ChestWorldConfig.legendary_weight)
-      return Rarity.Ultra_Rare;
-    else if (rarity < ChestWorldConfig.very_rare_weight + ChestWorldConfig.ultra_rare_weight + ChestWorldConfig.legendary_weight)
-      return Rarity.Very_Rare;
-    else if (rarity < ChestWorldConfig.rare_weight + ChestWorldConfig.very_rare_weight + ChestWorldConfig.ultra_rare_weight + ChestWorldConfig.legendary_weight)
-      return Rarity.Rare;
-    else if (rarity < ChestWorldConfig.uncommon_weight + ChestWorldConfig.rare_weight + ChestWorldConfig.very_rare_weight + ChestWorldConfig.ultra_rare_weight + ChestWorldConfig.legendary_weight)
-      return Rarity.Uncommon;
-    else if (rarity < ChestWorldConfig.common_weight + ChestWorldConfig.uncommon_weight + ChestWorldConfig.rare_weight + ChestWorldConfig.very_rare_weight + ChestWorldConfig.ultra_rare_weight + ChestWorldConfig.legendary_weight)
-      return Rarity.Common;
+    int missWeight = ChestWorldConfig.COMMON.missWeight.get();
+    int commonWeight = ChestWorldConfig.COMMON.commonWeight.get();
+    int uncommonWeight = ChestWorldConfig.COMMON.uncommonWeight.get();
+    int rareWeight = ChestWorldConfig.COMMON.rareWeight.get();
+    int veryRareWeight = ChestWorldConfig.COMMON.veryRareWeight.get();
+    int ultraRareWeight = ChestWorldConfig.COMMON.ultraRareWeight.get();
+    int legendaryWeight = ChestWorldConfig.COMMON.legendaryWeight.get();
+    int rarity = rand.nextInt(missWeight + commonWeight + uncommonWeight + rareWeight + veryRareWeight + ultraRareWeight + legendaryWeight);
+    if (rarity < legendaryWeight)
+      return Rarity.LEGENDARY;
+    else if (rarity < ultraRareWeight + legendaryWeight)
+      return Rarity.ULTRA_RARE;
+    else if (rarity < veryRareWeight + ultraRareWeight + legendaryWeight)
+      return Rarity.VERY_RARE;
+    else if (rarity < rareWeight + veryRareWeight + ultraRareWeight + legendaryWeight)
+      return Rarity.RARE;
+    else if (rarity < uncommonWeight + rareWeight + veryRareWeight + ultraRareWeight + legendaryWeight)
+      return Rarity.UNCOMMON;
+    else if (rarity < commonWeight + uncommonWeight + rareWeight + veryRareWeight + ultraRareWeight + legendaryWeight)
+      return Rarity.COMMON;
     else
-      return Rarity.Miss;
+      return Rarity.MISS;
   }
 
-  public static Rarity setRandomLootTable(ChestTileEntity chestEntity, Random rand) {
+  public static Rarity setRandomLootTable(ChestBlockEntity chestEntity, Random rand) {
     Rarity rare = throwRarity(rand);
     Pair<String, ResourceLocation> loot_table;
-    if (rare == Rarity.Common) {
+    if (rare == Rarity.COMMON) {
       loot_table = ModLootTables.COMMON_LOOT.get(rand.nextInt(ModLootTables.COMMON_LOOT.size()));
       chestEntity.setLootTable(loot_table.getValue(), ChestWorld.rand.nextLong());
-      chestEntity.setCustomName(new TranslationTextComponent(loot_table.getKey()).appendString(" (").appendSibling(new TranslationTextComponent("chestname.chestworld.rarity.common")).appendString(")"));
-    } else if (rare == Rarity.Uncommon) {
+      chestEntity.setCustomName(new TranslatableComponent(loot_table.getKey()).append(" (").append(new TranslatableComponent("chestname.chestworld.rarity.common")).append(")"));
+    } else if (rare == Rarity.UNCOMMON) {
       loot_table = ModLootTables.UNCOMMON_LOOT.get(rand.nextInt(ModLootTables.UNCOMMON_LOOT.size()));
       chestEntity.setLootTable(loot_table.getValue(), ChestWorld.rand.nextLong());
-      chestEntity.setCustomName(new TranslationTextComponent(loot_table.getKey()).appendString(" (").appendSibling(new TranslationTextComponent("chestname.chestworld.rarity.uncommon")).appendString(")"));
-    } else if (rare == Rarity.Rare) {
+      chestEntity.setCustomName(new TranslatableComponent(loot_table.getKey()).append(" (").append(new TranslatableComponent("chestname.chestworld.rarity.uncommon")).append(")"));
+    } else if (rare == Rarity.RARE) {
       loot_table = ModLootTables.RARE_LOOT.get(rand.nextInt(ModLootTables.RARE_LOOT.size()));
       chestEntity.setLootTable(loot_table.getValue(), ChestWorld.rand.nextLong());
-      chestEntity.setCustomName(new TranslationTextComponent(loot_table.getKey()).appendString(" (").appendSibling(new TranslationTextComponent("chestname.chestworld.rarity.rare")).appendString(")"));
-    } else if (rare == Rarity.Very_Rare) {
+      chestEntity.setCustomName(new TranslatableComponent(loot_table.getKey()).append(" (").append(new TranslatableComponent("chestname.chestworld.rarity.rare")).append(")"));
+    } else if (rare == Rarity.VERY_RARE) {
       loot_table = ModLootTables.VERY_RARE_LOOT.get(rand.nextInt(ModLootTables.VERY_RARE_LOOT.size()));
       chestEntity.setLootTable(loot_table.getValue(), ChestWorld.rand.nextLong());
-      chestEntity.setCustomName(new TranslationTextComponent(loot_table.getKey()).appendString(" (").appendSibling(new TranslationTextComponent("chestname.chestworld.rarity.very_rare")).appendString(")"));
-    } else if (rare == Rarity.Ultra_Rare) {
+      chestEntity.setCustomName(new TranslatableComponent(loot_table.getKey()).append(" (").append(new TranslatableComponent("chestname.chestworld.rarity.very_rare")).append(")"));
+    } else if (rare == Rarity.ULTRA_RARE) {
       loot_table = ModLootTables.ULTRA_RARE_LOOT.get(rand.nextInt(ModLootTables.ULTRA_RARE_LOOT.size()));
       chestEntity.setLootTable(loot_table.getValue(), ChestWorld.rand.nextLong());
-      chestEntity.setCustomName(new TranslationTextComponent(loot_table.getKey()).appendString(" (").appendSibling(new TranslationTextComponent("chestname.chestworld.rarity.ultra_rare")).appendString(")"));
-    } else if (rare == Rarity.Legendary) {
+      chestEntity.setCustomName(new TranslatableComponent(loot_table.getKey()).append(" (").append(new TranslatableComponent("chestname.chestworld.rarity.ultra_rare")).append(")"));
+    } else if (rare == Rarity.LEGENDARY) {
       loot_table = ModLootTables.LEGENDARY_LOOT.get(rand.nextInt(ModLootTables.LEGENDARY_LOOT.size()));
       chestEntity.setLootTable(loot_table.getValue(), ChestWorld.rand.nextLong());
-      chestEntity.setCustomName(new TranslationTextComponent(loot_table.getKey()).appendString(" (").appendSibling(new TranslationTextComponent("chestname.chestworld.rarity.legendary")).appendString(")"));
+      chestEntity.setCustomName(new TranslatableComponent(loot_table.getKey()).append(" (").append(new TranslatableComponent("chestname.chestworld.rarity.legendary")).append(")"));
     }
     return rare;
   }
 
-  public static void happenSomething(ServerWorld world, BlockPos pos, Random rand) {
-    int rand_num = rand.nextInt(ChestWorldConfig.spawn_mobs_weight + ChestWorldConfig.explosion_weight + ChestWorldConfig.spawner_weight);
-    if (rand_num < ChestWorldConfig.spawn_mobs_weight) {
-      world.destroyBlock(pos, false);
-      MONSTERS.get(rand.nextInt(MONSTERS.size())).spawn(world, null, null, null, pos, SpawnReason.NATURAL, false, false);
-    } else if (rand_num < ChestWorldConfig.explosion_weight + ChestWorldConfig.spawn_mobs_weight) {
-      world.destroyBlock(pos, false);
-      world.createExplosion(null, (double) pos.getX() + 0.5d, (double) pos.getY() + 0.5d, (double) pos.getZ() + 0.5d, 3.0f, Explosion.Mode.DESTROY);
+  public static void happenSomething(ServerLevel level, BlockPos pos, Random rand) {
+    int spawnMobsWeight = ChestWorldConfig.COMMON.spawnMobsWeight.get();
+    int explosionWeight = ChestWorldConfig.COMMON.explosionWeight.get();
+    int spawnerWeight = ChestWorldConfig.COMMON.spawnerWeight.get();
+    int rand_num = rand.nextInt(spawnMobsWeight + explosionWeight + spawnerWeight);
+    if (rand_num < spawnMobsWeight) {
+      level.destroyBlock(pos, false);
+      MONSTERS.get(rand.nextInt(MONSTERS.size())).spawn(level, null, null, null, pos, MobSpawnType.NATURAL, false, false);
+    } else if (rand_num < explosionWeight + spawnMobsWeight) {
+      level.destroyBlock(pos, false);
+      level.explode(null, (double) pos.getX() + 0.5d, (double) pos.getY() + 0.5d, (double) pos.getZ() + 0.5d, 3.0f, Explosion.BlockInteraction.DESTROY);
     } else {
-      world.setBlockState(pos, Blocks.SPAWNER.getDefaultState(), 2);
-      TileEntity tileentity = world.getTileEntity(pos);
-      if (tileentity instanceof MobSpawnerTileEntity) {
-        ((MobSpawnerTileEntity) tileentity).getSpawnerBaseLogic().setEntityType(SPAWNER_MONSTERS.get(rand.nextInt(SPAWNER_MONSTERS.size())));
+      level.setBlock(pos, Blocks.SPAWNER.defaultBlockState(), 2);
+      BlockEntity blockEntity = level.getBlockEntity(pos);
+      if (blockEntity instanceof SpawnerBlockEntity) {
+        ((SpawnerBlockEntity) blockEntity).getSpawner().setEntityId(SPAWNER_MONSTERS.get(rand.nextInt(SPAWNER_MONSTERS.size())));
       }
     }
   }

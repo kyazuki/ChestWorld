@@ -3,24 +3,25 @@ package com.github.kyazuki.chestworld;
 import com.github.kyazuki.chestworld.block.BlockChest;
 import com.github.kyazuki.chestworld.block.BlockChestLeaves;
 import com.github.kyazuki.chestworld.world.ChestWorldType;
-import com.github.kyazuki.chestworld.world.biome.ChestWorldBiomeMaker;
+import com.github.kyazuki.chestworld.world.biome.ChestWorldBiomes;
 import com.github.kyazuki.chestworld.world.gen.carver.ChestCanyonWorldCarver;
 import com.github.kyazuki.chestworld.world.gen.carver.ChestCaveWorldCarver;
-import com.github.kyazuki.chestworld.world.gen.feature.ChestLakesFeature;
-import net.minecraft.block.Block;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.material.MaterialColor;
-import net.minecraft.block.material.PushReaction;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.gen.carver.WorldCarver;
-import net.minecraft.world.gen.feature.BlockStateFeatureConfig;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.ProbabilityConfig;
+import com.github.kyazuki.chestworld.world.gen.feature.ChestLakeFeature;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.levelgen.carver.CanyonCarverConfiguration;
+import net.minecraft.world.level.levelgen.carver.CaveCarverConfiguration;
+import net.minecraft.world.level.levelgen.carver.WorldCarver;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.BlockStateConfiguration;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.common.world.ForgeWorldType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -38,12 +39,12 @@ import java.util.Random;
 public class ChestWorld {
   public static final String MODID = "chestworld";
   public static final Logger LOGGER = LogManager.getLogger(MODID);
-  public static final Block CHEST_BLOCK = new BlockChest(Block.Properties.create((new Material.Builder(MaterialColor.WOOD)).build()).hardnessAndResistance(2.5F).sound(SoundType.WOOD));
-  public static final Block CHEST_BLOCK_LEAVES = new BlockChestLeaves(Block.Properties.create(new Material(MaterialColor.WOOD, false, true, true, false, false, false, PushReaction.NORMAL)).hardnessAndResistance(2.5F).sound(SoundType.WOOD));
-  public static final WorldCarver<ProbabilityConfig> CHEST_CAVE = new ChestCaveWorldCarver(ProbabilityConfig.CODEC, 256);
-  public static final WorldCarver<ProbabilityConfig> CHEST_CANYON = new ChestCanyonWorldCarver(ProbabilityConfig.CODEC);
-  public static final Feature<BlockStateFeatureConfig> CHEST_LAKE = new ChestLakesFeature(BlockStateFeatureConfig.CODEC);
-  public static final Biome CHEST_BIOME = ChestWorldBiomeMaker.makeChestBiome();
+  public static final Block CHEST_BLOCK = new BlockChest(Block.Properties.of((new Material.Builder(MaterialColor.WOOD)).build()).strength(2.5F).sound(SoundType.WOOD));
+  public static final Block CHEST_BLOCK_LEAVES = new BlockChestLeaves(Block.Properties.of(new Material(MaterialColor.WOOD, false, true, true, false, false, false, PushReaction.NORMAL)).strength(2.5F).sound(SoundType.WOOD));
+  public static final WorldCarver<CaveCarverConfiguration> CHEST_CAVE = new ChestCaveWorldCarver(CaveCarverConfiguration.CODEC);
+  public static final WorldCarver<CanyonCarverConfiguration> CHEST_CANYON = new ChestCanyonWorldCarver(CanyonCarverConfiguration.CODEC);
+  public static final Feature<BlockStateConfiguration> CHEST_LAKE = new ChestLakeFeature(BlockStateConfiguration.CODEC);
+  public static final Biome CHEST_BIOME = ChestWorldBiomes.chestBiome();
   public static final ForgeWorldType CHEST_WORLD = new ChestWorldType();
   public static final Random rand = new Random();
 
@@ -73,8 +74,8 @@ public class ChestWorld {
   @SubscribeEvent
   public static void onRegisterItem(RegistryEvent.Register<Item> event) {
     event.getRegistry().registerAll(
-            setup(new BlockItem(CHEST_BLOCK, new Item.Properties().group(ItemGroup.MISC)), "block_chest"),
-            setup(new BlockItem(CHEST_BLOCK_LEAVES, new Item.Properties().group(ItemGroup.MISC)), "block_chest_leaves")
+            setup(new BlockItem(CHEST_BLOCK, new Item.Properties().tab(CreativeModeTab.TAB_MISC)), "block_chest"),
+            setup(new BlockItem(CHEST_BLOCK_LEAVES, new Item.Properties().tab(CreativeModeTab.TAB_MISC)), "block_chest_leaves")
     );
   }
 
