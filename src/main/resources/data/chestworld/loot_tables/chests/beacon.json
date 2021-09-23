@@ -48,6 +48,17 @@
         },
         {
           "type": "minecraft:item",
+          "weight": 1.0,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 164.0
+            }
+          ],
+          "name": "minecraft:netherite_block"
+        },
+        {
+          "type": "minecraft:item",
           "weight": 10.0,
           "functions": [
             {

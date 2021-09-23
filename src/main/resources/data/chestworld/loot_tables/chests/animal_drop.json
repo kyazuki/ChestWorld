@@ -157,6 +157,17 @@
             }
           ],
           "name": "minecraft:rabbit"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1.0,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": 1.0
+            }
+          ],
+          "name": "minecraft:scute"
         }
       ]
     }
